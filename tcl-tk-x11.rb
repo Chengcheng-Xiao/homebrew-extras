@@ -91,7 +91,7 @@ class TclTkX11 < Formula
           ln_s bin/"wish#{version.to_f}", bin/"wish"
         end
         resource("tkFont").stage do
-          system "cp tkFont.h #{prefix}/lib"
+          system "cp tkFont.h #{prefix}/include"
         end
       end
     end
