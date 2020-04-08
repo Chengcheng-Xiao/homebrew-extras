@@ -58,6 +58,11 @@ class TclTkX11 < Formula
     sha256 "72667ecbbd41af740157ee346db77734d1245b41dffc13ac80ca678dd3ccb515"
   end
 
+  resource "tkFont" do
+    url "https://raw.githubusercontent.com/phracker/MacOSX-SDKs/master/MacOSX10.8.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/tk-private/tkFont.h"
+    sha256 "21520f63a03620596b9c0b4e448c27fcbc87f89e4c9cff957803f416e8aac971"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -84,6 +89,9 @@ class TclTkX11 < Formula
           system "make", "install"
           system "make", "install-private-headers"
           ln_s bin/"wish#{version.to_f}", bin/"wish"
+        end
+        resource("tkFont").stage do
+          system "cp tkFont.h #{prefix}/lib"
         end
       end
     end
