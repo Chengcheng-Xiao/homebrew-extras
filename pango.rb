@@ -1,15 +1,9 @@
-class Pango_x11 < Formula
+class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.4.tar.xz"
   sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
-  revision 1
-
-  bottle do
-    sha256 "16c404ecab2dcf3d6eda9b93fe512c0f6b90b0d73887f80da814bc5d470c1ef3" => :mojave
-    sha256 "f1d5d2471ff6a0f6bdf643fd821d6d96fef211819ee080a0a6352554ce71fdb9" => :high_sierra
-    sha256 "9800e829c90780dd7a31f3a1806bd92a25bafadc47506830eaefb148d4b71570" => :sierra
-  end
+  revision 99
 
   head do
     url "https://gitlab.gnome.org/GNOME/pango.git"
@@ -27,6 +21,7 @@ class Pango_x11 < Formula
   depends_on "fribidi"
   depends_on "glib"
   depends_on "harfbuzz"
+  depends_on :x11
 
   def install
     system "./autogen.sh" if build.head?
@@ -36,7 +31,7 @@ class Pango_x11 < Formula
                           "--with-html-dir=#{share}/doc",
                           "--enable-introspection=yes",
                           "--enable-static",
-                          "--without-xft"
+                          "--with-xft"
 
     system "make"
     system "make", "install"

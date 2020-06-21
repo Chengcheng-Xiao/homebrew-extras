@@ -1,19 +1,11 @@
-class Gtkx_x11 < Formula
+class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
-  revision 3
+  revision 99
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
     sha256 "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
-  end
-
-  bottle do
-    rebuild 1
-    sha256 "09e223d16f3e891d2a4184c66fecbf0a777e70e23680ac794dd8c44e4a63d5cf" => :catalina
-    sha256 "cec64106c085533a58f8d436f029b2d7199a14cd15af9ece086814396ba48b0e" => :mojave
-    sha256 "30ce8d0a4062200196f8d802ae75769d8e05d530c338619d290704c46a7d317b" => :high_sierra
-    sha256 "a1324b85f6749111c3eb598c6d3ed231eaa8281b60fc2eb13d48a5f342da3efc" => :sierra
   end
 
   head do
@@ -27,10 +19,14 @@ class Gtkx_x11 < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "glib"
+  depends_on "cairo"
+  depends_on "pango"
   depends_on "atk"
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
-  depends_on "pango_x11"
+  depends_on :x11
+
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
   # See:
@@ -76,15 +72,15 @@ class Gtkx_x11 < Formula
       }
     EOS
     atk = Formula["atk"]
-    cairo = Formula["cairo"]
+    cairo = Formula["cairo-x11"]
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
-    glib = Formula["glib"]
+    glib = Formula["glib-x11"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
-    pango = Formula["pango"]
+    pango = Formula["pango-x11"]
     pixman = Formula["pixman"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
