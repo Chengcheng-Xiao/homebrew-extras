@@ -21,9 +21,9 @@ class Gtkx < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
-  depends_on "cairo"
-  depends_on "pango"
+  depends_on "chengcheng-xiao/extras/glib"
+  depends_on "chengcheng-xiao/extras/cairo"
+  depends_on "chengcheng-xiao/extras/pango"
   depends_on "atk"
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"

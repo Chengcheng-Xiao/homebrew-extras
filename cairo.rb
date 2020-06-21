@@ -17,7 +17,7 @@ class Cairo < Formula
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "glib"
+  depends_on "chengcheng-xiao/extras/glib"
   depends_on "libpng"
   depends_on "lzo"
   depends_on "pixman"
