@@ -5,6 +5,8 @@ class Glib < Formula
   sha256 "8f43c31767e88a25da72b52a40f3301fefc49a665b56dc10ee7cc9565cbe7481"
   revision 99
 
+  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+
   # autoconf, automake and libtool can be removed when
   # bug 780271 is fixed and gio.patch is modified accordingly
   depends_on "autoconf" => :build
@@ -85,6 +87,14 @@ class Glib < Formula
   def post_install
     (HOMEBREW_PREFIX/"lib/gio/modules").mkpath
   end
+
+  def caveats
+    <<~EOS
+      This is the X11 compatiable version.
+      needed by  ->  gtk+
+    EOS
+  end
+
 
   test do
     (testpath/"test.c").write <<~EOS

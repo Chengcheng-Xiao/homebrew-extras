@@ -5,6 +5,8 @@ class Pango < Formula
   sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
   revision 99
 
+  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+
   head do
     url "https://gitlab.gnome.org/GNOME/pango.git"
 
@@ -35,6 +37,13 @@ class Pango < Formula
 
     system "make"
     system "make", "install"
+  end
+
+  def caveats
+    <<~EOS
+      This is the X11 compatiable version.
+      needed by  ->  gtk+
+    EOS
   end
 
   test do

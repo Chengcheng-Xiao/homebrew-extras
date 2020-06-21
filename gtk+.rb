@@ -3,6 +3,8 @@ class Gtkx < Formula
   homepage "https://gtk.org/"
   revision 99
 
+  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
     sha256 "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
@@ -61,6 +63,13 @@ class Gtkx < Formula
 
     inreplace bin/"gtk-builder-convert", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
   end
+
+  def caveats
+    <<~EOS
+      This is the X11 compatiable version.
+    EOS
+  end
+
 
   test do
     (testpath/"test.c").write <<~EOS

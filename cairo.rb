@@ -5,6 +5,8 @@ class Cairo < Formula
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
   revision 99
 
+  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+
   head do
     url "https://anongit.freedesktop.org/git/cairo.git"
     depends_on "autoconf" => :build
@@ -39,6 +41,13 @@ class Cairo < Formula
                           "--enable-xlib=yes",
                           "--enable-xlib-xrender=yes"
     system "make", "install"
+  end
+
+  def caveats
+    <<~EOS
+      This is the X11 compatiable version.
+      needed by  ->  pango
+    EOS
   end
 
   test do
