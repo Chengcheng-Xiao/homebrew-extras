@@ -19,7 +19,7 @@ class VSim < Formula
   depends_on "libtool"
   depends_on "intltool"
   depends_on "pkg-config"
-  depends_on "chengcheng-xiao/extras/gtk+"
+  depends_on "chengcheng-xiao/extras/gtk+@99"
   # depends_on "glib"
   # depends_on "cairo"
   # depends_on "pango"

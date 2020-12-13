@@ -1,9 +1,9 @@
-class Gtkx < Formula
+class GtkxAT99 < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
   revision 99
 
-  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+  keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
@@ -21,9 +21,9 @@ class Gtkx < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "chengcheng-xiao/extras/glib"
-  depends_on "chengcheng-xiao/extras/cairo"
-  depends_on "chengcheng-xiao/extras/pango"
+  depends_on "chengcheng-xiao/extras/glib@99"
+  depends_on "chengcheng-xiao/extras/cairo@99"
+  depends_on "chengcheng-xiao/extras/pango@99"
   depends_on "atk"
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
@@ -58,6 +58,12 @@ class Gtkx < Formula
       ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh"
     end
+    # Soft link pango share folder to local/share. this part needs improvement.
+    # -------------------------------------------------------------------------
+#    system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/Pango-1.0.gir      /usr/local/share/gir-1.0/Pango-1.0.gir"
+#    system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoCairo-1.0.gir /usr/local/share/gir-1.0/PangoCairo-1.0.gir"
+#    system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoFT2-1.0.gir   /usr/local/share/gir-1.0/PangoFT2-1.0.gir"
+#    system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoXft-1.0.gir   /usr/local/share/gir-1.0/PangoXft-1.0.gir"
     system "./configure", *args
     system "make", "install"
 

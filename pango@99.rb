@@ -1,11 +1,11 @@
-class Pango < Formula
+class PangoAT99 < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.4.tar.xz"
   sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
   revision 99
 
-  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+  keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
 
   head do
     url "https://gitlab.gnome.org/GNOME/pango.git"
@@ -18,10 +18,10 @@ class Pango < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "chengcheng-xiao/extras/cairo"
+  depends_on "chengcheng-xiao/extras/cairo@99"
   depends_on "fontconfig"
   depends_on "fribidi"
-  depends_on "chengcheng-xiao/extras/glib"
+  depends_on "chengcheng-xiao/extras/glib@99"
   depends_on "harfbuzz"
   depends_on :x11
 
@@ -37,12 +37,26 @@ class Pango < Formula
 
     system "make"
     system "make", "install"
+    # Soft link pango share folder to local/share. this part needs improvement.
+    # -------------------------------------------------------------------------
+    #system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/Pango-1.0.gir      /usr/local/share/gir-1.0/Pango-1.0.gir"
+    #system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoCairo-1.0.gir /usr/local/share/gir-1.0/PangoCairo-1.0.gir"
+    #system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoFT2-1.0.gir   /usr/local/share/gir-1.0/PangoFT2-1.0.gir"
+    #system "ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoXft-1.0.gir   /usr/local/share/gir-1.0/PangoXft-1.0.gir"
   end
 
   def caveats
     <<~EOS
       This is the X11 compatiable version.
-      needed by  ->  gtk+
+      needed by  ->  gtki+
+
+    # Soft link pango share folder to local/share. this part needs improvement.
+    # -------------------------------------------------------------------------
+    ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/Pango-1.0.gir      /usr/local/share/gir-1.0/Pango-1.0.gir
+    ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoCairo-1.0.gir /usr/local/share/gir-1.0/PangoCairo-1.0.gir
+    ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoFT2-1.0.gir   /usr/local/share/gir-1.0/PangoFT2-1.0.gir
+    ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoXft-1.0.gir   /usr/local/share/gir-1.0/PangoXft-1.0.gir
+
     EOS
   end
 

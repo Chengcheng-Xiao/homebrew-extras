@@ -1,4 +1,4 @@
-class Pygtk < Formula
+class PygtkAT99 < Formula
   desc "GTK+ bindings for Python"
   homepage "http://www.pygtk.org/"
   url "https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2"
@@ -48,7 +48,7 @@ diff -pur a/pango-types.defs b/pango-types.defs
 @@ -176,13 +176,6 @@
    (gtype-id "PANGO_TYPE_FONTSET")
  )
- 
+
 -(define-object FontsetSimple
 -  (in-module "Pango")
 -  (parent "PangoFontset")
@@ -65,7 +65,7 @@ diff -pur a/pango.defs b/pango.defs
 @@ -1303,16 +1303,6 @@
    )
  )
- 
+
 -(define-method find_shaper
 -  (of-object "PangoFont")
 -  (c-name "pango_font_find_shaper")
@@ -82,7 +82,7 @@ diff -pur a/pango.defs b/pango.defs
 @@ -1391,15 +1381,6 @@
    )
  )
- 
+
 -(define-virtual find_shaper
 -  (of-object "PangoFont")
 -  (return-type "PangoEngineShape*")

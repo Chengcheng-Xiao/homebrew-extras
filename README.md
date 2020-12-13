@@ -15,3 +15,11 @@ Docs
 
 [wiki]:http://wiki.github.com/Homebrew/homebrew
 
+# IMPORTANT
+keg-only version of pango cannot be correctly detected by gtk+2, links needed for gtk+ compilation:
+```
+ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/Pango-1.0.gir      /usr/local/share/gir-1.0/Pango-1.0.gir
+ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoCairo-1.0.gir /usr/local/share/gir-1.0/PangoCairo-1.0.gir
+ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoFT2-1.0.gir   /usr/local/share/gir-1.0/PangoFT2-1.0.gir
+ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoXft-1.0.gir   /usr/local/share/gir-1.0/PangoXft-1.0.gir
+```

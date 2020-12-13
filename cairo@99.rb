@@ -1,11 +1,11 @@
-class Cairo < Formula
+class CairoAT99 < Formula
   desc "Vector graphics library with cross-device output support"
   homepage "https://cairographics.org/"
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
   revision 99
 
-  # keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
+  keg_only :versioned_formula, "thi is X11 compatiable. See github.com/Chengcheng-Xiao/homebrew-extras"
 
   head do
     url "https://anongit.freedesktop.org/git/cairo.git"
@@ -17,7 +17,7 @@ class Cairo < Formula
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "chengcheng-xiao/extras/glib"
+  depends_on "chengcheng-xiao/extras/glib@99"
   depends_on "libpng"
   depends_on "lzo"
   depends_on "pixman"
