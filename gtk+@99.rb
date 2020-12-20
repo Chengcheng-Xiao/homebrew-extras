@@ -27,7 +27,7 @@ class GtkxAT99 < Formula
   depends_on "atk"
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
-  depends_on :x11
+  #depends_on :x11
 
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
@@ -51,7 +51,9 @@ class GtkxAT99 < Formula
             # "--with-gdktarget=quartz",
             # "--disable-visibility"]
             "--with-gdktarget=x11",
-            "--enable-x11-backend"]
+            "--enable-x11-backend",
+            "--x-includes=/usr/X11/include",
+            "--x-libraries=/usr/X11/lib"]
 
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"

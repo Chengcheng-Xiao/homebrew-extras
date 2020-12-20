@@ -23,7 +23,7 @@ class PangoAT99 < Formula
   depends_on "fribidi"
   depends_on "chengcheng-xiao/extras/glib@99"
   depends_on "harfbuzz"
-  depends_on :x11
+  #depends_on :x11
 
   def install
     system "./autogen.sh" if build.head?

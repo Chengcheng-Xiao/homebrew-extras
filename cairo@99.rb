@@ -21,7 +21,7 @@ class CairoAT99 < Formula
   depends_on "libpng"
   depends_on "lzo"
   depends_on "pixman"
-  depends_on :x11
+  #depends_on :x11
 
   uses_from_macos "zlib"
 
@@ -39,7 +39,9 @@ class CairoAT99 < Formula
                           "--enable-quartz-image",
                           "--enable-xcb=yes",
                           "--enable-xlib=yes",
-                          "--enable-xlib-xrender=yes"
+                          "--enable-xlib-xrender=yes",
+                          "--x-includes=/usr/X11/include",
+                          "--x-libraries=/usr/X11/lib"
     system "make", "install"
   end
 
