@@ -23,3 +23,5 @@ ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoCairo-1.0.gir /usr
 ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoFT2-1.0.gir   /usr/local/share/gir-1.0/PangoFT2-1.0.gir
 ln -s /usr/local/Cellar/pango@99/1.42.4_99/share/gir-1.0/PangoXft-1.0.gir   /usr/local/share/gir-1.0/PangoXft-1.0.gir
 ```
+update 2020-12-20
+v_sim, more specifically cairo cannot be installed with x11. solution needed.

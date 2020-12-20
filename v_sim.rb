@@ -23,7 +23,7 @@ class VSim < Formula
   # depends_on "glib"
   # depends_on "cairo"
   # depends_on "pango"
-  depends_on :x11
+  #depends_on :x11
 
 
   def install
