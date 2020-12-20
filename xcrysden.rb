@@ -12,7 +12,7 @@ class Xcrysden < Formula
   depends_on "togl"
   depends_on "fftw"
   depends_on "wget" => :build
-  depends_on :x11
+  #depends_on :x11
 
   # modify Make.sys
   patch :DATA
@@ -80,7 +80,7 @@ diff -rupN xcrysden-1.6.2/system/Make.sys-semishared-macosx-x11-xquartz-brew xcr
 +# C-compiler flags
 +CFLAGS += -ffast-math -funroll-loops -fPIC -pedantic -Wall
 +
-+CC     = gcc
++CC     = /usr/bin/gcc
 +#LDLIB  = -ldl
 +MATH   = -lm -lc
 +
@@ -148,7 +148,7 @@ diff -rupN xcrysden-1.6.2/system/Make.sys-semishared-macosx-x11-xquartz-brew xcr
 +TK_LIB       = -L/usr/local/opt/tcl-tk-x11/lib -ltk$(TCL_VER)
 +GLU_LIB      = -L$(DARWIN_X11_PREFIX)/lib -lGLU
 +GL_LIB       = -L$(DARWIN_X11_PREFIX)/lib -lGL
-+FFTW3_LIB    = -lfftw3
++FFTW3_LIB    = -L/usr/local/lib -lfftw3
 +
 +# this is only used for some testing purposes
 +#MESCHACH_LIB =  -lmeschach

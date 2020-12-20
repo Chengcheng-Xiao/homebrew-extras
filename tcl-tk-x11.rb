@@ -9,7 +9,7 @@ class TclTkX11 < Formula
   keg_only :provided_by_macos,
     "tk installs some X11 headers and MacOS provides an (older) Tcl/Tk"
 
-  depends_on :x11
+  #depends_on :x11
 
   resource "tk" do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tk8.6.10-src.tar.gz"
@@ -33,6 +33,7 @@ class TclTkX11 < Formula
   end
 
   def install
+    ENV['CC'] = '/usr/bin/gcc'
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
@@ -50,6 +51,7 @@ class TclTkX11 < Formula
 
     # Let tk find our new tclsh
     ENV.prepend_path "PATH", bin
+    #ENV.prepend_path "LIBRARY_PATH", "/usr/X11/include"
 
     resource("tk").stage do
       cd "unix" do
