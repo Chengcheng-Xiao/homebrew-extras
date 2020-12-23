@@ -1,5 +1,6 @@
 Homebrew-extras
 ===============
+__DEPRECATED, PLEASE USE MACPORTS__
 Formulae for Homebrew.
 
 How do I install these formulae?
